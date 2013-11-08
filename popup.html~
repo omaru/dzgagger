@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <link rel="stylesheet" type="text/css" media="all" href="stylesheet.css">
+      <link rel="stylesheet" type="text/css" media="all" href="http://fonts.googleapis.com/css?family=Rambla:400,700|Kavoon">
+        <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
+     -->
+     <script src="imagefactory.js"></script>
+    <script src="service.js"></script>
+    <script src="render.js"></script>
+    <script src="popup.js"></script>
+    <script src="jquery.js"></script>
+  </head>
+<body style="">
+   <h1> DZGagger </h1>
+   <hr>
+   <div id="content">
+   </div>
+   <button id="btn-more" type="button" class="btn-more">More</button>
+   <div id="spinner">
+   	<img src="spinner.gif">
+   </div>
+</html>
+

@@ -1,0 +1,38 @@
+var Gagger = {
+   _url:  'http://9gag.com',
+   _posts : 10,
+  requestGags: function(url) {
+    Spinner.start();
+    var req = new XMLHttpRequest();
+    req.open("GET",url, true);
+    req.onload = this._showGags.bind(this);
+    req.send(null);
+  },
+
+  _showGags: function (e) {
+  	  var html = $(e.target.responseText);
+  	  var articles = html.find('.badge-entry-collection article');
+  	  var _this = this;
+  	  articles.each(function(){
+  	  	var article = $(this);
+  	  	var image = ImageFactory.create(article);
+  	  	Service.toImgUr(image,_this);
+  	  });
+
+  },
+  _render:function(image){
+  	  console.debug(image.src);
+  	  Render.render(image);
+  	  Spinner.stop();
+  	  $('#btn-more').click(this._loadMoreImg);
+  },
+  _loadMoreImg: function() {
+  	  var id = $('article:last').attr('id');
+  	 Gagger.requestGags(Gagger._url+'?id='+id+'&c='+Gagger._posts);
+  }
+};
+
+// Run our kitten generation script as soon as the document's DOM is ready.
+document.addEventListener('DOMContentLoaded', function () {
+  Gagger.requestGags(Gagger._url);
+});
