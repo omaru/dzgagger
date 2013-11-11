@@ -5,8 +5,13 @@ ImgUr hosting for 9gag posts
 
 Set Up
 -------------------------
+
+* Download the `dzgagger.pem` and `dzgagger.crx`  packages located inside `dist` folder.
+* Open up  the extensions page on chrome and set it as developer mode
+* Load the packed extension providing those files as needed.
+
 Developer Mode:
-This is an alfa so to set it up either you create a chrome plugin package or
+If you want to contribute with the project or want to see the source code please follow this steps:
 * download the source zip file
 * Unzip it to your favorite location
 * go to chrome plugin settings manager
