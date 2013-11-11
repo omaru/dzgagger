@@ -3,7 +3,10 @@ var Gagger = {
    _posts : 10,
    _gags:{},
    _KEY:'_gags',
-   init:function(){   
+   init:function(args){   
+    this._loader = args.loader;
+    this._loader.init();
+
     var gagsBackup=localStorage.getItem(this._KEY); 
     
     if(gagsBackup){
@@ -46,13 +49,13 @@ var Gagger = {
 
   },
   _render:function(image){
-  	  if(Render.render(image)){
-  	    if(!this._gags[image.id]){
-  	    	    this._gags[image.id] = image;
-  	    	    localStorage.setItem(this._KEY,JSON.stringify(this._gags));
-  	    }
-  	  }
-  	  
+    var article = ImageFactory.createArticle(image);
+      if(!this._gags[image.id]){
+    	    	    this._gags[image.id] = image;
+    	    	    localStorage.setItem(this._KEY,JSON.stringify(this._gags));
+    	}
+    	$('#content').append(article);
+
   	  $('#btn-more').removeClass("active");
   },
   _loadMoreImg: function() {
@@ -64,6 +67,6 @@ var Gagger = {
 
 // Run our kitten generation script as soon as the document's DOM is ready.
 document.addEventListener('DOMContentLoaded', function () {
-  Gagger.init();		
-  Gagger.requestGags(Gagger._url);
+  Gagger.init({loader:RemoteLoader});		
+ // Gagger.requestGags(Gagger._url);
 });

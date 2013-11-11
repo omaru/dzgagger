@@ -11,6 +11,22 @@ var ImageFactory ={
 			id:id,
 		};
 		
+	},
+	createArticle:function(image){
+		var article = null;
+		if(image.src){
+		 article =$('<article>');
+		 var header =$('<header>');
+		 header.append('<h4 class="navbar-text">'+image.title+'</h4>');
+		 var img = $('<img>');
+		 img.addClass('img-rounded');
+		 img.attr('src',image.src);
+		 article.append(header);
+		 article.append(img);
+		 article.attr('id',image.id);
+  	  	}
+  	  	return article;
+
 	}
 
 };

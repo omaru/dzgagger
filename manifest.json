@@ -3,7 +3,7 @@
 
   "name": "DZGagger",
   "description": "Hosting gags to imgur",
-  "version": "1.0",
+  "version": "0.1",
 
   "permissions": [
   	  "http://9gag.com/","https://*.imgur.com/","proxy"
@@ -18,5 +18,3 @@
     "default_popup": "main.html"
   }
 }
-
-

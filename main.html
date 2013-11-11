@@ -4,6 +4,8 @@
     <title>DZGagger</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
 
     <!-- <link rel="stylesheet" type="text/css" media="all" href="stylesheet.css">
       <link rel="stylesheet" type="text/css" media="all" href="http://fonts.googleapis.com/css?family=Rambla:400,700|Kavoon">
@@ -13,10 +15,11 @@
       -
       - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
      -->
+    <script src="js/util.js"></script>
+    <script src="js/remoteloader.js"></script>
     <script src="js/imagefactory.js"></script>
     <script src="js/spinner.js"></script>
     <script src="js/service.js"></script>
-    <script src="js/render.js"></script>
     <script src="js/main.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -25,10 +28,22 @@
 <body style="">
   <div class="container">
     <div class="page-header">
-         <h1>DZ<small>Gagger</small> </h1>
+      <h1>DZ<small>Gagger</small> </h1>
+      <div class="input-group">
+          <input type="url" id="gag-host" class="form-control" placeholder="http://gag/to/host" ></input>
+          <span class="input-group-addon">
+            <a href="#" data-toggle="tooltip" title="please enter a valid 9gag url" data-placement="bottom">
+             <img id="error" src="img/error.png" style="display:none;"></img>
+            </a>
+            <img id="ok" src="img/ok.png" style="display:none;"></img>
+          </span>
+      </div>
     </div>
     <div id="content">
-      
+      <div id="url-gag" class="thumbnail">
+        <span style="cursor:pointer;"  class="glyphicon glyphicon-minus-sign pull-right"></span>
+        <article id="awrMbGB"><header><h4 class="navbar-text">Why I can't take either of these movies seriously anymore</h4></header><img class="img-rounded" src="http://i.imgur.com/otsE61Z.jpg"></article>
+      </div>
     </div>
     <div class="page-header">
         <button type="button" class="btn btn-lg btn-primary btn-block " id="btn-more">Load More</button>

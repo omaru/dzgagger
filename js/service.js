@@ -7,25 +7,29 @@ var Service ={
 	
 	toImgUr: function (image,_that) {
   	  if(!image.src) return ;
-  	  
   	  var data = {'image':image.src};
   	  var imgSrc = "" ;
   	  var _this = this;
+      console.debug('before ajax call');
   	  $.ajax({
   	    async:true,
   	    type:'POST',
   	    headers:{
-  	    	    Authorization:'Client-ID 709d2a1043c93db'
+  	    	    Authorization:Service._API_CLIENT_ID
   	    },
   	    dataType:'JSON',
   	    url:"https://api.imgur.com/3/image",
   	    data:data
   	  }).done(function(img){
+            console.debug('after ajax call');
+
   	  	  image.src = img.data.link;
   	  	  image.isImgur=true;
   	  	  _that._render(image);
   	  	  
   	  });
+                  console.debug('after declaration call');
+
   }
 
 };
