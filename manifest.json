@@ -6,12 +6,15 @@
   "version": "0.1",
 
   "permissions": [
-  	  "http://9gag.com/","https://*.imgur.com/","proxy"
+  	  "http://9gag.com/","https://*.imgur.com/","proxy","contextMenus","clipboardWrite"
   ],
    "content_scripts": [ {
     "js": [ "js/jquery.js","js/bootstrap.min.js"],
     "matches": [ "http://*/*", "https://*/*"]
   }],
+  "background": {
+    "page"   :"background.html"
+  },
   "browser_action": {
     "default_title":"DZGagger",
     "default_icon": "img/icon.png",

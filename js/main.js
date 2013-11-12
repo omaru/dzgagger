@@ -68,5 +68,6 @@ var Gagger = {
 // Run our kitten generation script as soon as the document's DOM is ready.
 document.addEventListener('DOMContentLoaded', function () {
   Gagger.init({loader:RemoteLoader});		
+  ContextMenu.init();
  // Gagger.requestGags(Gagger._url);
 });
